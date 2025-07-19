@@ -40,7 +40,7 @@ const Cart = ({ isOpen, onClose }) => {
                   <img src={item.product.image} alt={item.product.name} className="cart-item-img" />
                   <div className="cart-item-info">
                     <div className="cart-item-title">{item.product.name}</div>
-                    <div className="cart-item-price">${item.product.price}</div>
+                    <div className="cart-item-price">₹{item.product.price}</div>
                     <div className="cart-item-qty">
                       <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)}>
                         <Minus size={16} />
@@ -52,7 +52,7 @@ const Cart = ({ isOpen, onClose }) => {
                     </div>
                   </div>
                   <div className="cart-item-total">
-                    ${(item.product.price * item.quantity).toFixed(2)}
+                    ₹{(item.product.price * item.quantity).toFixed(2)}
                     <button onClick={() => removeFromCart(item.product.id)} className="cart-remove-btn">
                       Remove
                     </button>
@@ -66,7 +66,7 @@ const Cart = ({ isOpen, onClose }) => {
           <div className="cart-footer">
             <div className="cart-total">
               <span>Total:</span>
-              <span>${getTotalPrice().toFixed(2)}</span>
+              <span>₹{getTotalPrice().toFixed(2)}</span>
             </div>
             <button className="cart-checkout-btn">Checkout</button>
             <button className="cart-continue-btn" onClick={onClose}>

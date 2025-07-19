@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import './ProductPage.css';
 
@@ -75,22 +75,59 @@ const products = [
     badge: [],
     category: 'Clothing',
   },
+  {
+    id: 7,
+    name: 'Denim Jeans',
+    desc: 'Classic fit denim jeans made from premium cotton for all-day comfort.',
+    price: 59.99,
+    oldPrice: 79.99,
+    image: 'https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=600',
+    rating: 4.6,
+    reviews: 110,
+    badge: ['FEATURED'],
+    category: 'Clothing',
+  },
+  {
+    id: 8,
+    name: 'Lightweight Hoodie',
+    desc: 'Soft and breathable hoodie, perfect for layering in any season.',
+    price: 49.99,
+    oldPrice: 69.99,
+    image: 'https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&cs=tinysrgb&w=600',
+    rating: 4.7,
+    reviews: 87,
+    badge: ['SALE'],
+    category: 'Clothing',
+  },
 ];
 
 const ProductPage = () => {
   const { addToCart } = useCart();
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const categories = ['All', 'Electronics', 'Clothing', 'Accessories', 'Home'];
+  const filteredProducts = selectedCategory === 'All'
+    ? products
+    : products.filter((p) => p.category === selectedCategory);
+
   return (
     <section className="products-section" id="products">
       <div className="products-container">
         <h2 className="products-title"><span style={{color:'#222'}}>Our </span><span style={{color:'#2563eb'}}>Products</span></h2>
         <p style={{textAlign:'center', color:'#555', fontSize:'1.1rem', marginBottom:'2rem'}}>Discover our carefully curated collection of premium products, each selected for quality and value.</p>
         <div className="products-filters" style={{display:'flex',flexWrap:'wrap',gap:'1rem',justifyContent:'center',marginBottom:'2.5rem'}}>
-          {['All','Electronics','Clothing','Accessories','Home'].map((cat,idx) => (
-            <button key={cat} className={idx===0?"filter-btn active":"filter-btn"}>{cat}</button>
+          {categories.map((cat,idx) => (
+            <button
+              key={cat}
+              className={selectedCategory === cat ? "filter-btn active" : "filter-btn"}
+              onClick={() => setSelectedCategory(cat)}
+            >
+              {cat}
+            </button>
           ))}
         </div>
         <div className="products-grid">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <div className="product-card" key={product.id}>
               <img src={product.image} alt={product.name} className="product-img" />
               <div className="product-info">
@@ -108,8 +145,8 @@ const ProductPage = () => {
                 <span className="product-name" style={{fontWeight:'bold',fontSize:'1.1rem',color:'#222',display:'block',marginBottom:'0.2rem'}}>{product.name}</span>
                 <div className="product-desc">{product.desc}</div>
                 <div className="product-pricing">
-                  <span className="product-price">${product.price.toFixed(2)}</span>
-                  <span className="product-old">${product.oldPrice.toFixed(2)}</span>
+                  <span className="product-price">₹{product.price.toFixed(2)}</span>
+                  <span className="product-old">₹{product.oldPrice.toFixed(2)}</span>
                 </div>
                 <button className="add-to-cart-btn" onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
