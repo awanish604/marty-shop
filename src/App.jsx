@@ -7,17 +7,22 @@ import Navbar from './components/navbar';
 import Hero from './components/Hero';
 import ProductPage from './components/ProductPage';
 import Cart from './components/Cart';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
   return (
-    <>
-      <Navbar onCartClick={() => setIsCartOpen(true)} />
-      <Hero />
-      <ProductPage />
-      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Hero />
+            <ProductPage />
+          </>
+        } />
+        <Route path="/cart" element={<Cart isOpen={true} onClose={null} />} />
+      </Routes>
+    </Router>
   );
 }
 

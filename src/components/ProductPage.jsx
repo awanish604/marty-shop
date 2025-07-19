@@ -4,6 +4,30 @@ import './ProductPage.css';
 
 const products = [
   {
+    id: 5,
+    name: 'Leather Wallet',
+    desc: 'Handcrafted genuine leather wallet with RFID protection and multiple compartments.',
+    price: 49.99,
+    oldPrice: 69.99,
+    image: 'https://images.pexels.com/photos/179909/pexels-photo-179909.jpeg?auto=compress&cs=tinysrgb&w=600',
+    rating: 4.7,
+    reviews: 120,
+    badge: ['FEATURED'],
+    category: 'Accessories',
+  },
+  {
+    id: 6,
+    name: 'Classic Sunglasses',
+    desc: 'Timeless UV-protected sunglasses with a durable frame, perfect for any occasion.',
+    price: 59.99,
+    oldPrice: 89.99,
+    image: 'https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&w=600',
+    rating: 4.8,
+    reviews: 78,
+    badge: ['SALE'],
+    category: 'Accessories',
+  },
+  {
     id: 1,
     name: 'Premium Wireless Headphones',
     desc: 'High-quality wireless headphones with noise cancellation and premium sound.',

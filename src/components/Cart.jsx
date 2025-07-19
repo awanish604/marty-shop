@@ -25,7 +25,13 @@ const Cart = ({ isOpen, onClose }) => {
             <div className="cart-empty">
               <ShoppingBag className="cart-empty-icon" />
               <p>Your cart is empty</p>
-              <span>Add some products to get started</span>
+              <button
+                className="cart-continue-btn"
+                style={{marginTop:'1.5rem', background:'#2563eb', color:'#fff', border:'none', borderRadius:'8px', padding:'0.8rem 2rem', fontWeight:600, fontSize:'1rem', cursor:'pointer'}}
+                onClick={() => window.location.href = '/'}
+              >
+                Continue to Products
+              </button>
             </div>
           ) : (
             <div className="cart-items">
