@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff, Mail, Lock, ShoppingBag, ArrowLeft, Github, Chrome } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, ShoppingBag, ArrowLeft } from 'lucide-react';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -120,27 +120,6 @@ const Login = () => {
               : 'Join us for an amazing shopping experience'
             }
           </p>
-        </div>
-
-        {/* Social login buttons */}
-        <div className="space-y-3 mb-6">
-          <button className="w-full flex items-center justify-center space-x-2 bg-white border-2 border-gray-200 text-gray-700 py-3 px-4 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 transform hover:scale-105">
-            <Chrome className="h-5 w-5 text-red-500" />
-            <span>Continue with Google</span>
-          </button>
-          <button className="w-full flex items-center justify-center space-x-2 bg-gray-900 text-white py-3 px-4 rounded-xl hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
-            <Github className="h-5 w-5" />
-            <span>Continue with GitHub</span>
-          </button>
-        </div>
-
-        <div className="relative mb-6">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300"></div>
-          </div>
-          <div className="relative flex justify-center text-sm">
-            <span className="px-2 bg-white text-gray-500">or continue with email</span>
-          </div>
         </div>
 
         {/* Form */}
